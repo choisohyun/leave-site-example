@@ -1,4 +1,6 @@
-<template></template>
+<template>
+  <div>IssueList</div>
+</template>
 
 <script>
 export default {};

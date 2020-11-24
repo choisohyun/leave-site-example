@@ -1,4 +1,6 @@
-<template></template>
+<template>
+  <div>CreateIssue</div>
+</template>
 
 <script>
 export default {};
