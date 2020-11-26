@@ -8,8 +8,12 @@ const router = createRouter({
   history: routerHistory,
   routes: [
     {
+      path: "/",
+      component: Repository,
+    },
+    {
       path: "/repository",
-      component: Repository
+      component: Repository,
     },
     {
       path: "/detail-issue",
