@@ -3,7 +3,7 @@
     <h1><router-link :to="{ path: '/detail-issue' }">Detail Issue</router-link></h1>
     <ul>
       <li v-for="({ name, type }, index) in tabData" :key="index">
-        <router-link :to="{ path: $route.path, query: { tabName: type } }">
+        <router-link :to="{ path: $route.path, query: { tabName: type } }" @click="checkCanLeavePage()">
           {{ name }}
         </router-link>
       </li>
@@ -36,10 +36,17 @@ export default {
   },
   methods: {
     isShowContent: function (type) {
+      console.log(this.$route)
       return this.$route.query.tabName === type;
     },
     changeCanLeaveSite: function (value) {
       this.canLeaveSite = value;
+    },
+    checkCanLeavePage: function () {
+      if (!this.canLeaveSite) {
+        if (!confirm('이 사이트에서 나가시겠습니까?\n변경사항이 저장되지 않을 수 있습니다.ㅇ')) return;
+        this.canLeaveSite = true;
+      }
     }
   },
   beforeRouteLeave(to, from, next) {
